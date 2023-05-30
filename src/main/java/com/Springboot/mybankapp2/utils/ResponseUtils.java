@@ -11,18 +11,16 @@ public class ResponseUtils {
     public static final String SUCCESS_MESSAGE = "Successfully done!";
     public static final String USER_NOT_FOUND_MESSAGE = "This user does not exist";
     public static final String USER_NOT_FOUND_CODE = "003";
-
     public static final String SUCCESSFUL_TRANSACTION = "004";
     public static final String ACCOUNT_CREDITED = "Account has been credited";
     public static final String ACCOUNT_DEBITED = "Account has been debited";
     public static final String SUCCESSFUL_TRANSFER_MESSAGE = "Transfer Successful";
     public static final String USER_BALANCE_INSUFFICIENT = "005";
     public static final String USER_BALANCE_INSUFFICIENT_MESSAGE = "Balance insufficient";
-
-
     public static final int LENGTH_OF_ACCOUNT_NUMBER = 10;
 
-    public  static String generateAccountNumber(int len){
+
+    public static String generateAccountNumber(int len){
         String accountNumber = "";
         int x;
         char[] stringChars = new char[len];

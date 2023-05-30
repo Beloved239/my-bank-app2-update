@@ -1,17 +1,13 @@
 package com.Springboot.mybankapp2.service.Impl;
-
 import com.Springboot.mybankapp2.Entity.Transaction;
 import com.Springboot.mybankapp2.dto.Response;
 import com.Springboot.mybankapp2.dto.TransactionDTO;
 import com.Springboot.mybankapp2.dto.TransactionHistory;
 import com.Springboot.mybankapp2.repository.TransactionRepository;
 import com.Springboot.mybankapp2.service.TransactionService;
-import com.Springboot.mybankapp2.utils.ResponseUtils;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
@@ -19,7 +15,6 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionServiceImpl (TransactionRepository transactionRepository){
         this.transactionRepository=transactionRepository;
     }
-
     @Override
     public void saveTransaction(TransactionDTO transactionDTO) {
        Transaction newTransaction = Transaction.builder()
@@ -28,9 +23,7 @@ public class TransactionServiceImpl implements TransactionService {
                .amount(transactionDTO.getAmount())
                .build();
        transactionRepository.save(newTransaction);
-
     }
-
     @Override
     public List<TransactionDTO> getAllTransaction() {
         List <Transaction> transaction = transactionRepository.findAll();
@@ -41,11 +34,9 @@ public class TransactionServiceImpl implements TransactionService {
                             .accountNumber(transaction1.getAccountNumber())
                             .amount(transaction1.getAmount())
                     .build());
-
         }
         return response;
     }
-
     @Override
     public Transaction fetchByAccountNumber(TransactionHistory transactionHistory) {
      List<Response> responses = new ArrayList<>();
